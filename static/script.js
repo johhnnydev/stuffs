@@ -55,5 +55,34 @@ document
     console.log(CATEGORIES);
   });
 
-let CATEGORIES = [];
 let categoryList = document.querySelector("#category-list");
+
+categoryList.addEventListener("click", function(e) {
+  console.log(e.target);
+  if (e.target.classList.contains("close")) {
+    console.log(e.target.parentNode.parentNode);
+    console.log("close button clicked!");
+    e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+  }
+});
+
+(function() {
+  fetch("/category")
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      data.forEach(el => {
+        let listTag = document.createElement("li");
+        let paragraphTag = document.createElement("p");
+        let anchorTag = document.createElement("a");
+
+        paragraphTag.innerHTML = el.category_description;
+        anchorTag.setAttribute("href", "#");
+        anchorTag.setAttribute("class", "close");
+        listTag.appendChild(paragraphTag);
+        listTag.appendChild(anchorTag);
+        categoryList.appendChild(listTag);
+      });
+    });
+})();

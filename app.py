@@ -47,7 +47,6 @@ def hello_world():
 
 @app.route('/category', methods=['POST'])
 def add_category():
-
     if request.json:
         print(request.json['category_description'])
         new_category = Category(request.json['category_description'])
@@ -60,4 +59,5 @@ def add_category():
 
 @app.route('/category', methods=['GET'])
 def get_all_category():
-    return "get all categories"
+    categories = Category.query.limit(10).all()
+    return categories_schema.jsonify(categories)
