@@ -1,0 +1,3 @@
+FLASK_ENV=development
+SQLALCHEMY_DATABASE_URI=postgres://postgres:postgres@localhost:5432/stuffsv2
+SQLALCHEMY_TRACK_MODIFICATIONS=False
