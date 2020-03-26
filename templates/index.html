@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="{{ url_for('static', filename='style.css') }}"
-      rel="stylesheet"
-    />
-    <title>
-      stuffs
-    </title>
+    {% include 'head.html' %}
   </head>
 
   <body>
@@ -29,92 +16,10 @@
         </button>
       </div>
       <div class="forms">
-        <form action="/" class="form" id="add-stuff" style="display: none;">
-          <div class="form-input">
-            <label for="stuff-description">description</label>
-            <input
-              type="text"
-              name="stuff-description"
-              id="stuff-description"
-              placeholder="description"
-              autocomplete="off"
-            />
-          </div>
-          <div class="form-input">
-            <label for="stuff-cost">cost</label>
-            <input
-              type="number"
-              name="stuff-cost"
-              id="stuff-cost"
-              placeholder="cost"
-              autocomplete="off"
-            />
-          </div>
-          <div class="form-input">
-            <label for="stuff-category">category</label>
-            <select
-              id="stuff-category"
-              name="stuff-category"
-              autocomplete="off"
-            >
-              <option value="utilities">utilities</option>
-              <option value="food">food</option>
-              <option value="transportation">transportation</option>
-              <option value="leisure">leisure</option>
-            </select>
-          </div>
-          <div class="form-input">
-            <label for="stuff-date">date</label>
-            <input
-              type="date"
-              name="stuff-date"
-              id="stuff-date"
-              autocomplete="off"
-            />
-          </div>
-          <button type="submit">submit</button>
-        </form>
+       {% include 'addstuff.html' %}
       </div>
       <div class="modal-container" id="modal-container">
-        <div class="modal">
-          <h1>categories</h1>
-          <a href="#" class="close"></a>
-          <form action="#" class="form" id="add-category-form">
-            <input
-              type="text"
-              name="category-description"
-              id="category-description"
-              placeholder="category description"
-            />
-            <button>add category</button>
-          </form>
-          <ul class="basic-list" id="category-list">
-            <li>
-              <p>
-                utilities
-              </p>
-              <a href="#" class="close"></a>
-            </li>
-            <li>
-              <p>
-                food
-              </p>
-              <a href="#" class="close"></a>
-            </li>
-            <li>
-              <p>
-                transportation
-              </p>
-              <a href="#" class="close"></a>
-            </li>
-            <li>
-              <p>
-                leisure
-              </p>
-              <a href="#" class="close"></a>
-            </li>
-          </ul>
-        </div>
+        {% include "categorymodal.html" %}
       </div>
       <!-- <div class="summary-row">
         <div class="summary">

@@ -1,0 +1,36 @@
+<form action="/" class="form" id="add-stuff" style="display: none;">
+  <div class="form-input">
+    <label for="stuff-description">description</label>
+    <input
+      type="text"
+      name="stuff-description"
+      id="stuff-description"
+      placeholder="description"
+      autocomplete="off"
+    />
+  </div>
+  <div class="form-input">
+    <label for="stuff-cost">cost</label>
+    <input
+      type="number"
+      name="stuff-cost"
+      id="stuff-cost"
+      placeholder="cost"
+      autocomplete="off"
+    />
+  </div>
+  <div class="form-input">
+    <label for="stuff-category">category</label>
+    <select id="stuff-category" name="stuff-category" autocomplete="off">
+      <option value="utilities">utilities</option>
+      <option value="food">food</option>
+      <option value="transportation">transportation</option>
+      <option value="leisure">leisure</option>
+    </select>
+  </div>
+  <div class="form-input">
+    <label for="stuff-date">date</label>
+    <input type="date" name="stuff-date" id="stuff-date" autocomplete="off" />
+  </div>
+  <button type="submit">submit</button>
+</form>
