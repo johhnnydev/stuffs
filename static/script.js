@@ -56,7 +56,7 @@ document
   });
 
 let categoryList = document.querySelector("#category-list");
-
+let CATEGORIES = [];
 categoryList.addEventListener("click", function(e) {
   console.log(e.target);
   if (e.target.classList.contains("close")) {
@@ -72,7 +72,8 @@ categoryList.addEventListener("click", function(e) {
       return response.json();
     })
     .then(data => {
-      data.forEach(el => {
+      CATEGORIES = data;
+      CATEGORIES.forEach(el => {
         let listTag = document.createElement("li");
         let paragraphTag = document.createElement("p");
         let anchorTag = document.createElement("a");
@@ -86,3 +87,5 @@ categoryList.addEventListener("click", function(e) {
       });
     });
 })();
+
+// createCategoryListItem description
