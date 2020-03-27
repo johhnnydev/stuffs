@@ -4,11 +4,13 @@
   <form action="#" class="form" id="add-category-form">
     <input
       type="text"
-      name="category-description"
+      name="category_description"
       id="category-description"
       placeholder="category description"
+      autocomplete="off"
+      required
     />
-    <button>add category</button>
+    <button id="addCategoryBtn">add category</button>
   </form>
   <ul class="basic-list" id="category-list">
   </ul>
