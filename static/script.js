@@ -62,7 +62,9 @@ document
 let CATEGORIES = [];
 document.querySelector("#category-list").addEventListener("click", function(e) {
   if (e.target.classList.contains("close")) {
-    console.log("close button clicked!");
+    let id = parseInt(e.target.parentNode.dataset.categoryId);
+    CATEGORIES = CATEGORIES.filter(obj => obj.id !== id);
+    deleteStuffCategory(id);
     e.target.parentNode.parentNode.removeChild(e.target.parentNode);
   }
 });
@@ -91,7 +93,17 @@ function createCategoryListItem(object) {
   anchorTag.setAttribute("href", "#");
   anchorTag.setAttribute("class", "close");
 
+  listTag.setAttribute("data-category-id", object.id);
+
   listTag.appendChild(paragraphTag);
   listTag.appendChild(anchorTag);
   document.querySelector("#category-list").appendChild(listTag);
+}
+
+// generic get from endpoint function
+// generic post to endpoint function
+function deleteStuffCategory(id) {
+  fetch("/category/" + id, { method: "DELETE" })
+    .then(res => res.json())
+    .then(res => console.log(res));
 }

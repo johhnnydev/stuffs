@@ -57,7 +57,15 @@ def add_category():
         return "ewwww"
 
 
+@app.route('/category/<id>', methods=['DELETE'])
+def delete_category(id):
+    category = Category.query.get(id)
+    db.session.delete(category)
+    db.session.commit()
+    return category_schema.jsonify(category)
+
+
 @app.route('/category', methods=['GET'])
 def get_all_category():
-    categories = Category.query.limit(10).all()
+    categories = Category.query.all()
     return categories_schema.jsonify(categories)
